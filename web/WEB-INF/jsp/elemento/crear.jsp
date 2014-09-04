@@ -38,6 +38,19 @@
                 <link rel='stylesheet' type='text/css' href='http://trentrichardson.com/Impromptu/jquery-impromptu.css' />
                 
                 <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>
+                      
+                <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
+
+                <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-arc.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-drill.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-gcode.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-path.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-pocket.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-profile.js'/>"></script>
+
+
+                <script src="<c:url value='/resources/cam/cam.js'/>"></script>
                 
                 <script src="<c:url value='/resources/cad/lib/external/raphael-min.js'/>"></script>	
                 <script type="text/javascript" src="<c:url value='/resources/cad/rp/rph.js'/>"></script>
@@ -46,6 +59,8 @@
                 <script src="<c:url value='/resources/cad/inputHandler.js'/>"></script>
                 <script src="<c:url value='/resources/cad/logicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
+                <script src="<c:url value='/resources/cad/cutHandler.js'/>"></script>
+                
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
                 
@@ -82,71 +97,63 @@
                 
         
 	</head>
-	<body>              
-		Modelo : ${Id}
-                Nombre Modelo: ${NombreModel}
-                <%--Tipo Maquina: ${TipoMaquina}--%>
-                <div id="theJson"></div>                      
+	<body>  
+            
+                <nav id="top-nav">
+                   <!-- <h1>OpenCNC</h1> -->
+                     <div id="controls">
+                        <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
+                         <input type="file" id="input-file-local" style="display:none">
+                        <button id="btn-open-file">Abrir Archivo</button>
+                        <button id="btn-save-file">Guardar Archivo</button>
+                        <button id="btn-compile-gcode">Compilar codigo G</button>
+
+                        <a id="link-download-gcode" style="display:none">download gcode</a>
+                      </div>
+                </nav>      
+            
+             
+
+              <div id="user-warnings"></div>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div id="editor-holder">
+                      <div id="yaml-editor"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>   
+            
+		
+                                    
                 <div class="cad">
-                    <div id="titulo">OpenCNC</div>
+                   
                     <div id="paper2"></div>
+                    <!--
                     <canvas id="CADCanvas"
                                     width="800"
                                     height="600"
                                     onContextMenu="javascript: return false;"
-                                    tabindex="1"></canvas>
+                                    tabindex="1">
+                                        
+                    </canvas>
+                    -->
                     
-                    <div id="paper"></div> 
+                    
                 </div>
-        
-            <div id="comandos">
-                <textarea id="codex" name="codex" rows="45" cols="30" spellcheck="false">
-                </textarea>
+              <div id="info">
+                  <c:forEach var="modelo" items="${modelos}"  >
+                      <br> Modelo: ${modelo.modeloId} 
+                      <br> Nombre: ${modelo.nombre}
+                      <br> Unidad Medida: ${modelo.unidadMedida.nombre}
+                      <br> Tipo de Maquina: ${modelo.tipoMaquina.nombre}
+                      <br> Ancho: ${modelo.piezaAncho}
+                      <br> Largo: ${modelo.piezaLargo}
+                      <br> Cero X: ${modelo.puntoCeroMaquinaX}
+                      <br> Cero Y: ${modelo.puntoCeroMaquinaY}
+                  </c:forEach>
             </div>
-                
-            <div id="opciones">
-                <table border="0">
-                    <thead>
-                        <tr>Opciones de comandos.
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><label for="textNombre"></label>
-                            </td>
-                            <td> <label for="textTelefono"></label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" id="textNombre" value="NaN" /></td>
-                            <td><input type="text" id="textTelefono" value="NaN" /></td>
-                        </tr>
-                        <tr>
-                            <td>X</td>
-                            <td>Y</td>
-                        </tr>
-                        <tr>
-                            <td>x1<input type="text" id="x1Pos" name="X1" value="0" /></td>
-                            <td>y1<input type="text" id="y1Pos" name="Y1" value="0" /></td>
-                        </tr>
-                        <tr>
-                            <td>x2<input type="text" id="x2Pos" name="X2" value="0" /> </td>
-                            <td>y2<input type="text" id="y2Pos" name="Y2" value="0" /></td>
-                        </tr>
-                         <tr>
-                            <td>R<input type="text" name="R" value="0" /></td>
-                            <td>A<input type="text" name="A" value="0" /></td>
-                        </tr>
-                        <tr>
-                            <td><input id="xml" type="submit" value="XML" onclick="arranqueXML()"/>    
-                            </td>
-                            <td><input id="txt" type="submit" value="TXT" onclick="arranqueTXT()"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-                  
         </body>    
 </html>

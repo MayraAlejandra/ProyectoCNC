@@ -4,21 +4,19 @@
  * and open the template in the editor.
  */
 
-var yaml = {
-       name: "Cut_Demo",
-       units: "Inch",
-       cuts: [{
-               type: "drill",
-               points: ["[1,2]","[2,2]","[2,3]","[2,4]"]
-       }]
-   }
-   
- 
 function Codexg(){
     //this.components = new Array();
     
     this.name = 'cut_demo';
     this.units = 'inch';
+    this.z_x = 0;
+    this.z_y = 0;
+    this.max_size_x = 100;
+    this.max_size_y = 100;
+    this.spindle_speed = 900;
+    this.type_machine = 'Fresa';
+    this.wise = "clock";
+    this.security_zone = 10000;
     this.bit_diameter = 0.125;
     this.feed_rate = 15;
     this.plunge_rate = 5;
@@ -42,7 +40,7 @@ Codexg.prototype.exportYAML = function(){
 Codexg.prototype.init = function(){
     //alert('codexg');
     this.test();
-    console.log(this.exportYAML());
+    //console.log(this.exportYAML());
 };
 
 Codexg.prototype.test = function(){
@@ -52,10 +50,8 @@ Codexg.prototype.test = function(){
    
    this.cuts.push(new Drill(1,2,5,6));
    this.cuts.push(new Drill(15,22,55,66));
-   //this.cuts.push(new Path());
-   //console.log(this.components);
-    //this.components.push("{type: 'drill', points:[[0.93, 0.75], [0.93, 0.75], [0.93, 0.75]]}");
-   //console.log(yaml);
+   this.cuts.push(new Drill(1,2));
+  
    
 };
 

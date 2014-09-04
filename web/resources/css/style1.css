@@ -1,8 +1,7 @@
-/* Created by Artisteer v4.1.0.59861 */
 
 #art-main
 {
-   background: #4388AD url('../images/pageglare.png') no-repeat fixed;
+   background: #4388AD url('../resources/images/pageglare.png') no-repeat fixed;
    margin:0 auto;
    font-size: 20px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -325,7 +324,7 @@ form
 table.position
 {
    position: relative;
-   width: 100%;
+   width: 50%;
    table-layout: fixed;
 }
 
@@ -481,7 +480,7 @@ text-shadow: 0.7px 0.7px 0px rgba(153, 153, 153, 0.8), 1.4px 1.4px 0px rgba(140,
 
 .art-nav
 {
-   background: #FFFFFF url('../images/nav.png') bottom left repeat-x scroll;
+   background: #FFFFFF url('../resources/images/nav.png') bottom left repeat-x scroll;
    -webkit-border-radius:0 0 3px 3px;
    -moz-border-radius:0 0 3px 3px;
    border-radius:0 0 3px 3px;
@@ -674,7 +673,7 @@ ul.art-hmenu>li:before
    left:  -9px;
    width:9px;
    height: 37px;
-   background: url('../images/menuseparator.png') center center no-repeat;
+   background: url('../resources/images/menuseparator.png') center center no-repeat;
 }
 ul.art-hmenu>li:first-child:before{
    display:none;
@@ -795,7 +794,7 @@ ul.art-hmenu ul
    z-index: 10;
    left: 0;
    top: 0;
-   background-image: url('../images/spacer.gif');
+   background-image: url('../resources/images/spacer.gif');
 }
 
 .desktop ul.art-hmenu>li>ul
@@ -977,7 +976,7 @@ div.art-block img
 }
 .art-block ul>li:before
 {
-   content:url('images/blockbullets.png');
+   content:url('../resources/images/blockbullets.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1746,7 +1745,7 @@ pre
 
 .art-postheadericon:before
 {
-   content:url('../images/postheadericon.png');
+   content:url('../resources/images/postheadericon.png');
    margin-right:6px;
    bottom: 4px;
    position:relative;
@@ -1846,7 +1845,7 @@ pre
 
 .art-postdateicon:before
 {
-   content:url('images/postdateicon.png');
+   content:url('../resources/images/postdateicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1863,7 +1862,7 @@ pre
 
 .art-postauthoricon:before
 {
-   content:url('../images/postauthoricon.png');
+   content:url('../resources/images/postauthoricon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1880,7 +1879,7 @@ pre
 
 .art-postpdficon:before
 {
-   content:url('../images/postpdficon.png');
+   content:url('../resources/images/postpdficon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1897,7 +1896,7 @@ pre
 
 .art-postprinticon:before
 {
-   content:url('../images/postprinticon.png');
+   content:url('../resources/images/postprinticon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1914,7 +1913,7 @@ pre
 
 .art-postemailicon:before
 {
-   content:url('../images/postemailicon.png');
+   content:url('../resources/images/postemailicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1931,7 +1930,7 @@ pre
 
 .art-postediticon:before
 {
-   content:url('../images/postediticon.png');
+   content:url('../resources/images/postediticon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1948,7 +1947,7 @@ pre
 
 .art-postcontent ul>li:before,  .art-post ul>li:before,  .art-textblock ul>li:before
 {
-   content:url('../images/postbullets.png');
+   content:url('../resources/images/postbullets.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2017,7 +2016,7 @@ pre
 
 blockquote
 {
-   background: #BCD2E1 url('../images/postquote.png') no-repeat scroll;
+   background: #BCD2E1 url('../resources/images/postquote.png') no-repeat scroll;
    padding:6px 6px 6px 43px;
    margin:0 0 0 15px;
    color: #080E12;
@@ -2103,7 +2102,7 @@ blockquote p,
 
 .art-postcategoryicon:before
 {
-   content:url('../images/postcategoryicon.png');
+   content:url('../resources/images/postcategoryicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2120,7 +2119,7 @@ blockquote p,
 
 .art-posttagicon:before
 {
-   content:url('../images/posttagicon.png');
+   content:url('../resources/images/posttagicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2137,7 +2136,7 @@ blockquote p,
 
 .art-postcommentsicon:before
 {
-   content:url('../images/postcommentsicon.png');
+   content:url('../resources/images/postcommentsicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2259,7 +2258,7 @@ blockquote p,
 
 .art-rss-tag-icon
 {
-   background:  url('../images/footerrssicon.png') no-repeat scroll;
+   background:  url('../resources/images/footerrssicon.png') no-repeat scroll;
    margin:0 auto;
    min-height:32px;
    min-width:32px;
@@ -2275,7 +2274,7 @@ blockquote p,
 
 .art-facebook-tag-icon
 {
-   background:  url('../images/footerfacebookicon.png') no-repeat scroll;
+   background:  url('../resources/images/footerfacebookicon.png') no-repeat scroll;
    margin:0 auto;
    min-height:32px;
    min-width:32px;
@@ -2291,7 +2290,7 @@ blockquote p,
 
 .art-twitter-tag-icon
 {
-   background:  url('../images/footertwittericon.png') no-repeat scroll;
+   background:  url('../resources/images/footertwittericon.png') no-repeat scroll;
    margin:0 auto;
    min-height:32px;
    min-width:32px;
@@ -2388,7 +2387,7 @@ blockquote p,
 
 .art-lightbox-wrapper .loading
 {
-   background: #fff url('../images/preloader-01.gif') center center no-repeat;
+   background: #fff url('../resources/images/preloader-01.gif') center center no-repeat;
    border: 1px solid #b4b4b4;
    border-radius: 10px;
    box-shadow: 0 2px 5px #333;
@@ -2539,7 +2538,6 @@ blockquote p,
 /* Begin Additional CSS Styles */
 .art-blockheader .t, .art-vmenublockheader .t {white-space: nowrap;}
 
-#header-image1 img {
+#header-image1 image {
   display: block;
 }
-/* End Additional CSS Styles */

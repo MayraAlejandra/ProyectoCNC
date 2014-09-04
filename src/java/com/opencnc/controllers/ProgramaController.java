@@ -37,7 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ProgramaController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(ProgramaController.class.getName());
     
 /**
  * *****************************************************************************
@@ -52,6 +52,9 @@ public class ProgramaController {
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        
+        try{
+        logger.info("Se lista los programas");
         HttpSession sess =  request.getSession();
          if (sess != null){
               Session  s = HibernateUtil.getSessionFactory().openSession();
@@ -68,7 +71,32 @@ public class ProgramaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al listar los programas"+ex);       
+       }
+       return null;
        
+    }
+ /**
+     * *****************************************************************************
+    * CAM.
+    *******************************************************************************
+    *******************************************************************************
+    * Metodo faltante de desarrllo.
+    *******************************************************************************
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception 
+     */
+    @RequestMapping  ("/programa/crear_G")
+    public ModelAndView   crear_G  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        
+        ModelAndView m = new ModelAndView("/programa/crear_G");
+               
+        return m;
     }
     
 /**
@@ -85,6 +113,8 @@ public class ProgramaController {
     public ModelAndView crear (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+        logger.info("Se creara el id del programa");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Programa p = new Programa();              
@@ -115,6 +145,11 @@ public class ProgramaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al crear el id del programa"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -131,6 +166,8 @@ public class ProgramaController {
     public ModelAndView borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+        logger.info("Se eliminara el programa");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();
@@ -143,6 +180,11 @@ public class ProgramaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al eliminar el programa"+ex); 
+               
+       }
+       return null;
         
     }
     
@@ -161,6 +203,8 @@ public class ProgramaController {
     public ModelAndView actualizar (@ModelAttribute Programa p,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+        logger.info("Se modificara el programa");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session s = HibernateUtil.getSessionFactory().openSession();
@@ -174,6 +218,11 @@ public class ProgramaController {
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al modificar el programa"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -192,6 +241,8 @@ public class ProgramaController {
     public ModelAndView obtenerPrograma (int programaID,
                                             HttpServletRequest request, 
                                             HttpServletResponse response) throws Exception{
+        try{
+        logger.info("Se obtendra el programa");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -199,6 +250,11 @@ public class ProgramaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener el programa"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -217,6 +273,8 @@ public class ProgramaController {
     public ModelAndView obtenerProgramaPorModelo (int ModeloID,
                                                     HttpServletRequest request, 
                                                     HttpServletResponse response) throws Exception{
+        try{
+        logger.info("Se obtendra el programa por modelo");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -224,5 +282,10 @@ public class ProgramaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener el programa del modelo "+ex); 
+               
+       }
+       return null;
     }
 }

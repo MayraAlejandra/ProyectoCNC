@@ -13,7 +13,7 @@
   * ****************************************************************************
   * @returns {icons}
   */
- function icons(){
+function icons(){
             container = document.getElementById('paper2');
             paper = new Raphael(container, lenght, tall);
             
@@ -104,10 +104,7 @@
                 //mover
                 this.imove = paper.path("M25.545,23.328,17.918,15.623,25.534,8.007,27.391,9.864,29.649,1.436,21.222,3.694,23.058,5.53,15.455,13.134,7.942,5.543,9.809,3.696,1.393,1.394,3.608,9.833,5.456,8.005,12.98,15.608,5.465,23.123,3.609,21.268,1.351,29.695,9.779,27.438,7.941,25.6,15.443,18.098,23.057,25.791,21.19,27.638,29.606,29.939,27.393,21.5z")
                 
-                
-                //
-                //paper.path("M5.5,5.5h20v20h-20z");
-                
+ 
            );
            attrIcons(st);
             
@@ -221,48 +218,32 @@
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
               console.log('se selecciona Wizard!!');
-              
-              
-               /*             
-              var ksk =gd.getObjects();
-              ksk.componentes = "hola";
-              var yaml = '';
-              var points = '';
-              yaml = "name: cut_demo "+ "\n" +
-                    "units: inch "+ "\n" +
-                    "bit_diameter: 0.125 "+ "\n"+
-                    "feed_rate: 15 "+"\n"+
-                    "plunge_rate: 5 "+"\n"+
-                    "z_step_size: 0.1 "+"\n"+
-                    "default_depth: -0.2 "+"\n"+"\n"+
-
-                    "cuts: "+"\n"+
-                    "- type: drill "+"\n";
-               console.log(yaml);
-              //console.log(ksk.toString());
-              for (var i=0; i<=ksk.length - 1; i++){
-                  console.log(ksk[i]);
-                  points = ksk[i].x1;
-                  points.create(ksk[i].y1)
-                  console.log(points.toString());
-              }
-              */
-              //console.log(JSON.stringify(ksk.componentes));
-              //console.log(ksk);
-              
+           
+            // this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure, gd.typeOfCad);
+             this.cuthandler = new CutHandler(gd);
+             helperYAML(this.cuthandler.setObject(gd.getObjects()));  
+                
+             console.log(JSON.stringify(gd.getObjects()));
             //gd.setMode(gd.MODES.EDIT);         
           });
+          
           idim.mousemove(function(){
               idim.attr({fill: colors, stroke: "none"});
           }).click(function () {
               avisoEntrada('Vas a usar la herramienta de medicion!');
-             gd.setMode(gd.MODES.ADDMEASURE);
+              gd.setMode(gd.MODES.ADDMEASURE);
             
           });
           idimx.mousemove(function(){
               idimx.attr({fill: colors, stroke: "none"});
           }).click(function () {
-            
+              ilapiz.show();
+              idim.show();
+              iless.show();
+              irectangle.show();
+              isync.show();
+              ilabel.show();
+              idot.show();
           });
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
@@ -286,7 +267,14 @@
           }).click(function () {
               console.log('Presiona icono tool');
               avisoEntrada('Estamos listos para empezar a definir los tipos de mecanizado. Estas Listo?','Estas listo para empezar?');
-              gd.setMode(gd.MODES.CODE_G);
+              ilapiz.hide();
+              idim.hide();
+              iless.hide();
+              irectangle.hide();
+              isync.hide();
+              ilabel.hide();
+              idot.hide();
+               gd.setMode(gd.MODES.CODE_G);
               //seleccionElementos();
               
           });

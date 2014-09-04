@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 var COMPONENT_G_TYPES = {
 		DRILL : 'drill',
+                ARCS : 'arcs',
 		PATH : 'path',
 		PROFILE : 'profile',
 		POCKET : 'pocket',
@@ -20,35 +22,45 @@ function Drill(x1,y1,x2,y2) {
     Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.DRILL;
     
+    
 };
 Drill.prototype = new Points();
 Drill.prototype.constructor = Drill;
 
-function Path() {
-    Points.call(this);
+function Arcs(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
+    this.type = COMPONENT_G_TYPES.ARCS;
+        
+};
+Arcs.prototype = new Points();
+Arcs.prototype.constructor = Arcs;
+
+function Path(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.PATH;
     
 };
 Path.prototype = new Points();
 Path.prototype.constructor = Path;
 
-function Profile() {
-    ComponentG.call(this);
+function Profile(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.PROFILE;
     this.depth = -0.05;
     this.side = 'outside';
     this.size = new Array();
     this.origin = new Array();
     this.corner_compensation = true;
+    
 };
 Profile.prototype = new ComponentG();
 Profile.prototype.constructor = Profile;
 
-function Pocket() {
-    ComponentG.call(this);
+function Pocket(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.POCKET;
     this.depth = -0.05;
-
+    
 };
 Pocket.prototype = new ComponentG();
 Pocket.prototype.constructor = Pocket;
